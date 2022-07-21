@@ -21,11 +21,18 @@ import ClickHandler from("@manuelernestog/click-handler");
 const clickDelay = 500; // delay it's optional (350 miliseconds by default)
 var clickHandler = new ClickHandler(clickDelay);
 
-// Call the handle method inside your click action
-function onClick() {
-    clickHandler.handle(onClickActions,onDblClickActions);
-}
-
 function onClickActions() {...}
 function onDblClickActions() {...}
+
+// Call the handle method inside your click action
+function onClick() {
+
+    clickHandler.handle(onClickActions,onDblClickActions);
+
+    // If you need to handle this behavior in different elements in the same view, add the ID for isolating the state of each element
+ clickHandler.handle(onClickActions,onDblClickActions,elementId);
+
+}
+
+
 ```
